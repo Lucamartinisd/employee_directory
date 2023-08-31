@@ -54,11 +54,13 @@ function createEmployeeModal(data) {
     const birthDate = new Date(data.dob.date).toLocaleDateString('en-US', { month: '2-digit', day: '2-digit', year: '2-digit' });
     const html = `<div id="exit">x</div><img src="${data.picture.large}"><h3>${fName} ${lName}</h3><p>${email}</p><p>${city}</p><div id="border"></div><p>${cell}</p><p>${streetNum} ${streetName} ${city}, ${abbreviateState(state)} ${postCode}</p><p>Birthday: ${birthDate}</p>`;
     modalCard.innerHTML = html;
+
     if (filteredEmployeeArray.length === 1) {
         for (let arrow of arrows) {
             arrow.style.display = 'none';
         }
     }
+
     else {
         for (let arrow of arrows) {
             arrow.style.display = '';
@@ -126,6 +128,7 @@ function abbreviateState(state) {
             return states[i][1];
         }
     }
+
     return 'Unavailable';
 }
 
@@ -140,6 +143,7 @@ searchBox.addEventListener('keyup', e => {
             cardList[i].style.display = '';
             filteredEmployeeArray.push(employeeArray[i]);
         }
+
         else {
             cardList[i].style.display = 'none';
         }
@@ -149,6 +153,7 @@ searchBox.addEventListener('keyup', e => {
     if (filteredEmployeeArray.length === 0) {
         noResults.style.display = 'block';
     }
+
     else {
         noResults.style.display = 'none';
     }
@@ -164,17 +169,21 @@ modal.addEventListener('click', e => {
         body.style.overflow = 'auto';
         searchWrap.style.zIndex = '5';
     }
+
     if (e.target.id === 'left-arrow' || e.target.parentElement.id === 'left-arrow') {
         if (currentIndex === 0) {
             currentIndex = employeeArray.length - 1;
         }
+
         else {
             currentIndex -= 1;
         }
+
         while (cardList[currentIndex].style.display === 'none') {
             if (currentIndex === 0) {
                 currentIndex = employeeArray.length;
             }
+
             currentIndex -= 1;
         }
         createEmployeeModal(employeeArray[currentIndex]);
@@ -184,16 +193,20 @@ modal.addEventListener('click', e => {
         if (currentIndex === employeeArray.length - 1) {
             currentIndex = 0;
         }
+
         else {
             currentIndex += 1;
         }
+
         while (cardList[currentIndex].style.display === 'none') {
             if (currentIndex === employeeArray.length - 1) {
                 currentIndex = -1;
             }
+
             currentIndex += 1;
 
         }
+
         createEmployeeModal(employeeArray[currentIndex]);
     }
 });
@@ -207,15 +220,19 @@ main.addEventListener('click', e => {
         body.style.overflow = 'hidden';
         searchWrap.style.zIndex = '1';
         let id = '';
+
         if (e.target.parentElement.className === 'card') {
             id = parseInt(e.target.parentElement.id);
             console.log(e);
         }
+
         else {
             id = parseInt(e.target.id);
         }
+
         currentIndex = id;
         createEmployeeModal(employeeArray[id]);
     }
+    
 });
 

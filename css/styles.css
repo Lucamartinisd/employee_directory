@@ -11,7 +11,6 @@ body {
     position: relative;
     overflow: auto;
     background-color: rgb(255, 254, 254);
-   
 }
 
 main {
@@ -42,19 +41,15 @@ main {
 
 
 #search-wrap {
-   
-   
     width: 100%;
     margin: auto;
     text-align: center;
     padding: 30px 0 15px;
     background-color: rgb(255, 254, 254);
     box-shadow: 0 -3px 16px -3px rgba(0, 0, 0, .2);
-   
 }
 
 #search-box {
-  
     width: 318px;
     height: 45px;
     margin: 0 auto 20px;
@@ -159,11 +154,13 @@ main {
     cursor: pointer;
 }
 
-#modal #left-arrow {
+#modal 
+#left-arrow {
     left: 2%;
 }
 
-#modal #right-arrow {
+#modal 
+#right-arrow {
     right: 2%;
 }
 
@@ -242,7 +239,8 @@ main {
     text-align: center;
 }
 
-#modal-card #border {
+#modal-card
+#border {
     width: 80%;
     height: 1px;
     background-color: rgb(209, 209, 209);
@@ -293,5 +291,4 @@ main {
     #search-box {
         width: 318px;
     }
-
 }
